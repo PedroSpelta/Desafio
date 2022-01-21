@@ -11,7 +11,7 @@ function LogoSvg() {
     >
       <g
         transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
-        fill="#0088fd"
+        fill="#1f8fc8"
         stroke="none"
       >
         <path

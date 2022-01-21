@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState } from 'react';
 import Header from '../components/header/Header';
+import PaintCalculator from '../components/paintCalculator/PaintCalculator';
 
 const Home: NextPage = () => {
   const [language, setLanguage] = useState('english');
@@ -15,7 +16,7 @@ const Home: NextPage = () => {
 
       <main >
         <Header />
-        
+        <PaintCalculator />
       </main>
 
       <footer >
