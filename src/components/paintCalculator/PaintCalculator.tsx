@@ -5,12 +5,12 @@ import PaintSidebar from "./PaintSidebar";
 
 function PaintCalculator() {
   const [walls, setWalls] = useState([{}]);
-    
+
   return (
     <div className="flex w-full justify-center items-center">
       <div className="w-full max-w-4xl bg-gray-200 rounded-md flex items-center flex-col">
         <PaintRoomShape setWalls={setWalls} />
-        <div className="">
+        <div className="flex">
           <PaintSidebar walls={walls} />
           <PaintArea />
         </div>
