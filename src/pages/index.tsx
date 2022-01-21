@@ -15,7 +15,6 @@ const Home: NextPage = () => {
 
       <main >
         <Header />
-        <br className='w-full'/>
         
       </main>
 
