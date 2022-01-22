@@ -27,6 +27,7 @@ const PaintArea: React.FC<IPaintSizeState> = ({ size, setSize }) => {
       edges: { top: true, left: true, bottom: true, right: true },
       listeners: {
         move: function (event) {
+          console.log("refupdate");
           let { x, y } = event.target.dataset;
           const { width, height } = event.rect;
           if (width * height < 10000 || width * height > 150000) return;
@@ -36,13 +37,12 @@ const PaintArea: React.FC<IPaintSizeState> = ({ size, setSize }) => {
           // y = 0;
           // x = (parseFloat(x) || 0) + event.deltaRect.left;
           // y = (parseFloat(y) || 0) + event.deltaRect.top;
-          Object.assign(event.target.style, {
-            width: `${width}px`,
-            height: `${height}px`,
-            // transform: `translate(${x}px, ${y}px)`,
-          });
-
-          Object.assign(event.target.dataset, { x, y });
+          // Object.assign(event.target.style, {
+          //   width: `${width}px`,
+          //   height: `${height}px`,
+          //   transform: `translate(${x}px, ${y}px)`,
+          // });
+          // Object.assign(event.target.dataset, { x, y });
         },
       },
     });
