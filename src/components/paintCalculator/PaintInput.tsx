@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import { width } from "@mui/system";
 import React, { useState } from "react";
 import { IPaintSizeState } from "../../types/paint/paint";
@@ -12,39 +12,47 @@ const PaintInput: React.FC<IPaintSizeState> = ({ size, setSize }) => {
   };
 
   const localToStateSize = () => {
-    const {width, height} = localSize;
+    const { width, height } = localSize;
     const area = width * height;
     if (area > 150000 || area < 10000) {
-      return window.alert('Area should be bigger than 1m² and smaller than 15m²')
+      return window.alert(
+        "Area should be bigger than 1m² and smaller than 15m²"
+      );
     }
-    return setSize(localSize)
-  }
+    return setSize(localSize);
+  };
   return (
-    <div>
-      <div className="w-20">
-        <TextField
-          size="small"
-          value={localSize.height}
-          onChange={(e) =>
-            setLocalSize((state) => ({
-              ...state,
-              height: inputToNumber(e.target.value),
-            }))
-          }
-        />
-      </div>
-      <div className="w-20">
-        <TextField
-          size="small"
-          value={localSize.width}
-          onChange={(e) =>
-            setLocalSize((state) => ({
-              ...state,
-              width: inputToNumber(e.target.value),
-            }))
-          }
-        />
-      </div>
+    <div className="flex flex-col">
+      <TextField
+        label="Height"
+        size="small"
+        sx={{ m: 1, width: "14ch", height: "ch" }}
+        value={localSize.height}
+        InputProps={{
+          endAdornment: <InputAdornment position="end">m</InputAdornment>,
+        }}
+        onChange={(e) =>
+          setLocalSize((state) => ({
+            ...state,
+            height: inputToNumber(e.target.value),
+          }))
+        }
+      />
+      <TextField
+        label="width"
+        size="small"
+        sx={{ m: 1, width: "14ch", height: "ch" }}
+        value={localSize.width}
+        InputProps={{
+          endAdornment: <InputAdornment position="end">m</InputAdornment>,
+        }}
+        onChange={(e) =>
+          setLocalSize((state) => ({
+            ...state,
+            width: inputToNumber(e.target.value),
+          }))
+        }
+      />
       <Button variant="text" onClick={localToStateSize}>
         Change
       </Button>
