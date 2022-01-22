@@ -42,4 +42,21 @@ a {
   opacity: 1;
   transition: margin-top 600ms, opacity 600ms ease-in;
 }
+.resizable {
+  width: 120px;
+  border-radius: 0.75rem;
+  padding: 20px;
+  margin: 1rem;
+  background-color: #29e;
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+  overflow: hidden;
 
+  font-size: 12px;
+
+  touch-action: none;
+
+  /* This makes things *much* easier */
+  box-sizing: border-box;
+}

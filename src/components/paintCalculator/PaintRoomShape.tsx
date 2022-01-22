@@ -1,5 +1,6 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import React, { Dispatch, ReactComponentElement, SetStateAction } from "react";
+import { IPaintSize } from "../../types/paint/paint";
 
 // interface IWall {
 //   width: number;
@@ -11,7 +12,7 @@ import React, { Dispatch, ReactComponentElement, SetStateAction } from "react";
 // }
 
 interface IPaintRoomShape {
-  setWalls: React.Dispatch<React.SetStateAction<{}[]>>;
+  setWalls: React.Dispatch<React.SetStateAction<Array<IPaintSize>>>;
 }
 
 const PaintRoomShape: React.FC<IPaintRoomShape> = ({ setWalls }) => {
