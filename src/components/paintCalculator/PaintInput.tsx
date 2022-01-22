@@ -21,6 +21,7 @@ const PaintInput: React.FC<IPaintSizeState> = ({ size, setSize }) => {
     }
     return setSize(localSize);
   };
+  
   return (
     <div className="flex flex-col">
       <TextField
@@ -39,7 +40,7 @@ const PaintInput: React.FC<IPaintSizeState> = ({ size, setSize }) => {
         }
       />
       <TextField
-        label="width"
+        label="Width"
         size="small"
         sx={{ m: 1, width: "14ch", height: "ch" }}
         value={localSize.width}

@@ -11,5 +11,5 @@ export interface IPaintSizeState {
 }
 
 export interface IPaintRoomShape {
-  setWalls: React.Dispatch<React.SetStateAction<Array<IPaintSize>>>;
+  setWallQty: React.Dispatch<number>;
 }
