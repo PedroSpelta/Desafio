@@ -36,7 +36,7 @@ const PaintArea: React.FC<IPaintArea> = ({ actualWall, setActualWall }) => {
         move: function (event) {
           const { width, height } = event.rect;
           if (width * height < 10000 || width * height > 150000) return;
-          setActualWall({ width, height });
+          setActualWall((state) => ({...state, width, height }));
           // let { x, y } = event.target.dataset;
           // setSize({ width, height });
           // x = 0;

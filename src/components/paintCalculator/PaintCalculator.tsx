@@ -7,7 +7,7 @@ import PaintSidebar from "./PaintSidebar";
 
 const defaultWalls = {
   walls: [
-    { width: 100, height: 100 },
+    { width: 100, height: 100, windows:0, doors:0 },
   ],
   active: 0,
 };
@@ -16,14 +16,12 @@ function PaintCalculator() {
   const [walls, setWalls] = useState<IWallsObject>(defaultWalls);
   const [actualWall, setActualWall] = useState<IWall>(
     walls.walls[walls.active]
-  );
-  const [wallQty, setWallQty] = useState(1);  
+  );  
 
   useEffect(() => {
-    const { width, height } = actualWall;
     setWalls((state) => {
       const newWalls = { ...state };
-      newWalls.walls[walls.active] = { width, height };
+      newWalls.walls[walls.active] = {...actualWall };
       return newWalls;
     });
   }, [actualWall]);
@@ -37,7 +35,7 @@ function PaintCalculator() {
       <div className="w-full max-w-4xl bg-gray-200 rounded-md flex items-center flex-col">
         <PaintRoomShape walls={walls} setWalls={setWalls} />
         <div className="flex w-full">
-          <PaintSidebar walls={walls} setWalls={setWalls} wallQty={wallQty}/>
+          <PaintSidebar walls={walls} setWalls={setWalls} />
           <PaintArea actualWall={actualWall} setActualWall={setActualWall} />
           <PaintInput actualWall={actualWall} setActualWall={setActualWall} />
         </div>

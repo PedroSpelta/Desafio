@@ -3,6 +3,8 @@ import { Dispatch, SetStateAction } from "react";
 export interface IWall {
   width: number;
   height: number;
+  windows: number;
+  doors: number;
 }
 
 export interface IWalls extends Array<IWall> {}
@@ -24,11 +26,15 @@ export interface IPaintRoomShape {
 
 export interface IPantSidebar {
   walls: IWallsObject;
-  wallQty:number;
   setWalls: Dispatch<SetStateAction<IWallsObject>>;
 }
 
 export interface IPaintArea {
+  actualWall: IWall;
+  setActualWall: Dispatch<SetStateAction<IWall>>;
+}
+
+export interface IPaintInput {
   actualWall: IWall;
   setActualWall: Dispatch<SetStateAction<IWall>>;
 }

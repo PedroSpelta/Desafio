@@ -2,7 +2,7 @@ import React, { Dispatch, useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { IPantSidebar, IWallsObject } from "../../types/paint/paint";
 
-const PaintSidebar: React.FC<IPantSidebar> = ({ walls, setWalls, wallQty }) => {  
+const PaintSidebar: React.FC<IPantSidebar> = ({ walls, setWalls }) => {  
   return (
     <div className="rounded-xl h-[400px] w-20 overflow-hidden">
       <TransitionGroup className="flex flex-col items-center h-full gap-2">
