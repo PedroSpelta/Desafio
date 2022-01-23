@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { defaultWalls } from "../../constants/wall";
+import { IWalls } from "../../types/wall";
+import PaintForm from "./PaintForm";
+import PaintRoomShape from "./PaintRoomShape";
+import PaintSidebar from "./PaintSideBar";
 
 function PaintCalculator() {
-  return <div className="flex flex-col justify-center items-center">
-    <div className="max-w-5xl bg-red-400 w-full h-80">tese</div>
-  </div>;
+  const [walls, setWalls] = useState<IWalls>(defaultWalls);
+  const [wallNumber, setWallNumber] = useState(0);
+
+  return (
+    <div>
+      <PaintRoomShape walls={walls} setWalls={setWalls} />
+      <div className="flex justify-center items-center">
+        <PaintSidebar walls={walls} setWallNumber={setWallNumber} />
+        <PaintForm walls={walls} setWalls={setWalls} wallNumber={wallNumber} />
+      </div>
+    </div>
+  );
 }
 
 export default PaintCalculator;
