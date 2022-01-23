@@ -1,9 +1,11 @@
 import { Button, InputAdornment, TextField } from "@mui/material";
-import { width } from "@mui/system";
 import React, { useState } from "react";
 import { IPaintSizeState } from "../../types/paint/paint";
 
-const PaintInput: React.FC<IPaintSizeState> = ({ size, setSize }) => {
+const PaintInput: React.FC<IPaintSizeState> = ({
+  actualWall,
+  setActualWall,
+}) => {
   const [localSize, setLocalSize] = useState({ width: 80, height: 80 });
 
   const inputToNumber = (input: string) => {
@@ -19,9 +21,9 @@ const PaintInput: React.FC<IPaintSizeState> = ({ size, setSize }) => {
         "Area should be bigger than 1m² and smaller than 15m²"
       );
     }
-    return setSize(localSize);
+    return setActualWall(localSize);
   };
-  
+
   return (
     <div className="flex flex-col">
       <TextField

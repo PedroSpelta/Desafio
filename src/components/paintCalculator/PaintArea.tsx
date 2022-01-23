@@ -1,38 +1,44 @@
 import interact from "interactjs";
-import React, { Dispatch, useEffect, useRef, useState } from "react";
-import { IPaintSize, IPaintSizeState } from "../../types/paint/paint";
+import React, { useEffect, useRef } from "react";
+import { IPaintArea, IWall } from "../../types/paint/paint";
 
-const PaintArea: React.FC<IPaintSizeState> = ({ size, setSize }) => {
-  // const [size, setSize] = useState({ width: 80, height: 80 });
-
+const PaintArea: React.FC<IPaintArea> = ({ actualWall, setActualWall }) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
-  const changePaintStyleSize = (size: IPaintSize) => {
-    const event = ref.current;
+  const changePaintStyleSize = (size: IWall) => {
     const { width, height } = size;
-    if (!event) return;
-    Object.assign(event.style, {
+    const { current } = ref;
+    if (!current) return;
+    Object.assign(current.style, {
       width: `${width}px`,
       height: `${height}px`,
     });
   };
 
   useEffect(() => {
-    changePaintStyleSize(size);
-  }, [size]);
+    changePaintStyleSize(actualWall);
+  }, [actualWall]);
+
+  // const test = (width: number, height: number) => {
+  //   setWalls((state) => {
+  //     const newWalls = { ...state };
+  //     newWalls.walls[walls.active] = { width, height };
+  //     return newWalls;
+  //   });
+  // };
 
   useEffect(() => {
-    if (!ref.current) return;
-    interact(ref.current).resizable({
+    const { current } = ref;
+    if (!current) return;
+    interact(current).resizable({
       edges: { top: true, left: true, bottom: true, right: true },
       listeners: {
         move: function (event) {
-          console.log("refupdate");
-          let { x, y } = event.target.dataset;
           const { width, height } = event.rect;
           if (width * height < 10000 || width * height > 150000) return;
-
-          setSize({ width, height });
+          setActualWall({ width, height });
+          // let { x, y } = event.target.dataset;
+          // setSize({ width, height });
           // x = 0;
           // y = 0;
           // x = (parseFloat(x) || 0) + event.deltaRect.left;
@@ -46,7 +52,7 @@ const PaintArea: React.FC<IPaintSizeState> = ({ size, setSize }) => {
         },
       },
     });
-  }, [ref, setSize]);
+  }, [setActualWall]);
 
   return (
     <div className="w-[80%] h-[70%] max-h-[400px] overflow-hidden">
@@ -55,9 +61,9 @@ const PaintArea: React.FC<IPaintSizeState> = ({ size, setSize }) => {
         ref={ref}
       >
         <p>
-          {size.height / 100}m x {size.width / 100}m
+          {actualWall.height / 100}m x {actualWall.width / 100}m
         </p>
-        <p>{((size.height * size.width) / 10000).toFixed(2)}m²</p>
+        <p>{((actualWall.height * actualWall.width) / 10000).toFixed(2)}m²</p>
       </div>
     </div>
   );
