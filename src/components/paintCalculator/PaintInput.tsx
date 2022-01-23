@@ -1,12 +1,19 @@
-import { Button, InputAdornment, TextField } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  FormHelperText,
+  InputAdornment,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
+import { height, minHeight } from "@mui/system";
 import React, { useState } from "react";
-import { IPaintSizeState } from "../../types/paint/paint";
+import { IPaintInput } from "../../types/paint/paint";
 
-const PaintInput: React.FC<IPaintSizeState> = ({
-  actualWall,
-  setActualWall,
-}) => {
-  const [localSize, setLocalSize] = useState({ width: 80, height: 80 });
+const PaintInput: React.FC<IPaintInput> = ({ actualWall, setActualWall }) => {
+  const [localSize, setLocalSize] = useState({ width: 100, height: 100 });
 
   const inputToNumber = (input: string) => {
     if (input.length > 4) return Number(input.slice(0, -1));
@@ -56,6 +63,25 @@ const PaintInput: React.FC<IPaintSizeState> = ({
           }))
         }
       />
+      <FormControl sx={{ m: 1, width: "14ch" }} size="small">
+        <InputLabel id="windows-label">Windows</InputLabel>
+        <Select labelId="windows-label" label="Windows" >
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+        </Select>
+      </FormControl>
+
+      <FormControl sx={{ m: 1, width: "14ch" }} size="small">
+        <InputLabel id="doors-label" >Doors</InputLabel>
+        <Select labelId="doors-label" label="Doors">
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+        </Select>
+      </FormControl>
+
+
       <Button variant="text" onClick={localToStateSize}>
         Change
       </Button>
