@@ -8,7 +8,8 @@ import PaintSidebar from "./PaintSideBar";
 function PaintCalculator() {
   const [walls, setWalls] = useState<IWalls>(defaultWalls);
   const [wallNumber, setWallNumber] = useState(0);
-
+  console.log(wallNumber);
+  
   return (
     <div>
       <PaintRoomShape walls={walls} setWalls={setWalls} />

@@ -18,15 +18,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
 .wallSelector-exit {
   margin-top: 0%;
   opacity: 1;
   transition: margin-top 600ms, opacity 600ms ease-out;
 }
+
 .wallSelector-exit-active {
   margin-top: -100%;
   opacity: 0;
-
   transition: margin-top 600ms, opacity 600ms ease-out;
 }
 
@@ -35,6 +36,7 @@ a {
   opacity: 0;
   transition: margin-top 600ms, opacity 600ms ease-in;
 }
+
 .wallSelector-enter-active {
   margin-top: 0%;
   opacity: 1;
