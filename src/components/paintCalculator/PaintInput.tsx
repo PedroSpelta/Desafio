@@ -11,6 +11,7 @@ import {
 import { height, minHeight } from "@mui/system";
 import React, { useState } from "react";
 import { IPaintInput } from "../../types/paint/paint";
+import { validateArea, validateDoors } from "../../utils/validateInput";
 
 const PaintInput: React.FC<IPaintInput> = ({ actualWall, setActualWall }) => {
   const [localSize, setLocalSize] = useState({
@@ -26,93 +27,98 @@ const PaintInput: React.FC<IPaintInput> = ({ actualWall, setActualWall }) => {
   };
 
   const localToStateSize = () => {
-    const { width, height } = localSize;
-    const area = width * height;
-    if (area > 150000 || area < 10000) {
-      return window.alert(
-        "Area should be bigger than 1m² and smaller than 15m²"
-      );
-    }
+    const invalidArea = validateArea(localSize);
+    if (invalidArea) return alert(invalidArea);
+    const invalidDoors = validateDoors(localSize);
+    if (invalidDoors) return alert(invalidDoors);
+
     return setActualWall(localSize);
   };
 
   return (
     <div className="flex flex-col">
-      <TextField
-        label="Height"
-        size="small"
-        sx={{ m: 1, width: "14ch", height: "ch" }}
-        value={localSize.height}
-        InputProps={{
-          endAdornment: <InputAdornment position="end">m</InputAdornment>,
-        }}
-        onChange={(e) =>
-          setLocalSize((state) => ({
-            ...state,
-            height: inputToNumber(e.target.value),
-          }))
-        }
-      />
-      <TextField
-        label="Width"
-        size="small"
-        sx={{ m: 1, width: "14ch", height: "ch" }}
-        value={localSize.width}
-        InputProps={{
-          endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-        }}
-        onChange={(e) =>
-          setLocalSize((state) => ({
-            ...state,
-            width: inputToNumber(e.target.value),
-          }))
-        }
-      />
-      <FormControl sx={{ m: 1, width: "14ch" }} size="small">
-        <InputLabel id="windows-label">Windows</InputLabel>
-        <Select
-          labelId="windows-label"
-          label="Windows"
-          value={localSize.windows}
+      <FormControl>
+        <TextField
+          label="Height"
+          size="small"
+          sx={{ m: 1, width: "14ch", height: "ch" }}
+          value={localSize.height}
+          InputProps={{
+            endAdornment: <InputAdornment position="end">cm</InputAdornment>,
+          }}
           onChange={(e) =>
             setLocalSize((state) => ({
               ...state,
-              windows: Number(e.target.value),
+              height: inputToNumber(e.target.value),
             }))
           }
-        >
-          <MenuItem value={0}>0</MenuItem>
-
-          <MenuItem value={1}>1</MenuItem>
-          <MenuItem value={2}>2</MenuItem>
-          <MenuItem value={3}>3</MenuItem>
-        </Select>
-      </FormControl>
-
-      <FormControl sx={{ m: 1, width: "14ch" }} size="small">
-        <InputLabel id="doors-label">Doors</InputLabel>
-        <Select
-          labelId="doors-label"
-          label="Doors"
-          value={localSize.doors}
+        />
+        <TextField
+          label="Width"
+          size="small"
+          sx={{ m: 1, width: "14ch", height: "ch" }}
+          value={localSize.width}
+          InputProps={{
+            endAdornment: <InputAdornment position="end">cm</InputAdornment>,
+          }}
           onChange={(e) =>
             setLocalSize((state) => ({
               ...state,
-              doors: Number(e.target.value),
+              width: inputToNumber(e.target.value),
             }))
           }
+        />
+        <FormControl sx={{ m: 1, width: "14ch" }} size="small">
+          <InputLabel id="windows-label">Windows</InputLabel>
+          <Select
+            labelId="windows-label"
+            label="Windows"
+            value={localSize.windows}
+            onChange={(e) =>
+              setLocalSize((state) => ({
+                ...state,
+                windows: Number(e.target.value),
+              }))
+            }
+          >
+            <MenuItem value={0}>0</MenuItem>
+
+            <MenuItem value={1}>1</MenuItem>
+            <MenuItem value={2}>2</MenuItem>
+            <MenuItem value={3}>3</MenuItem>
+          </Select>
+        </FormControl>
+
+        <FormControl sx={{ m: 1, width: "14ch" }} size="small">
+          <InputLabel id="doors-label">Doors</InputLabel>
+          <Select
+            labelId="doors-label"
+            label="Doors"
+            value={localSize.doors}
+            onChange={(e) =>
+              setLocalSize((state) => ({
+                ...state,
+                doors: Number(e.target.value),
+              }))
+            }
+          >
+            <MenuItem value={0}>0</MenuItem>
+
+            <MenuItem value={1}>1</MenuItem>
+            <MenuItem value={2}>2</MenuItem>
+            <MenuItem value={3}>3</MenuItem>
+          </Select>
+        </FormControl>
+
+        <Button
+          variant="text"
+          type="submit"
+          onClick={localToStateSize}
+          onSubmit={localToStateSize}
         >
-          <MenuItem value={0}>0</MenuItem>
-
-          <MenuItem value={1}>1</MenuItem>
-          <MenuItem value={2}>2</MenuItem>
-          <MenuItem value={3}>3</MenuItem>
-        </Select>
+          Change
+        </Button>
       </FormControl>
-
-      <Button variant="text" onClick={localToStateSize}>
-        Change
-      </Button>
     </div>
   );
 };

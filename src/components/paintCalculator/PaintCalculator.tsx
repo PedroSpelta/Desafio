@@ -32,7 +32,7 @@ function PaintCalculator() {
 
   return (
     <div className="flex w-full justify-center items-center">
-      <div className="w-full max-w-4xl bg-gray-200 rounded-md flex items-center flex-col">
+      <div className="w-full bg-gray-200 rounded-md flex items-center flex-col paint-area">
         <PaintRoomShape walls={walls} setWalls={setWalls} />
         <div className="flex w-full">
           <PaintSidebar walls={walls} setWalls={setWalls} />

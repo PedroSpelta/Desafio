@@ -1,6 +1,7 @@
 import interact from "interactjs";
 import React, { useEffect, useRef } from "react";
 import { IPaintArea, IWall } from "../../types/paint/paint";
+import { MdWindow, MdDoorFront } from "react-icons/md";
 
 const PaintArea: React.FC<IPaintArea> = ({ actualWall, setActualWall }) => {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -36,7 +37,7 @@ const PaintArea: React.FC<IPaintArea> = ({ actualWall, setActualWall }) => {
         move: function (event) {
           const { width, height } = event.rect;
           if (width * height < 10000 || width * height > 150000) return;
-          setActualWall((state) => ({...state, width, height }));
+          setActualWall((state) => ({ ...state, width, height }));
           // let { x, y } = event.target.dataset;
           // setSize({ width, height });
           // x = 0;
@@ -57,13 +58,21 @@ const PaintArea: React.FC<IPaintArea> = ({ actualWall, setActualWall }) => {
   return (
     <div className="w-[80%] h-[70%] max-h-[400px] overflow-hidden">
       <div
-        className=" border border-black overflow-auto wall resizable font-bold"
+        className=" border border-black overflow-auto wall resizable font-bold relative"
         ref={ref}
       >
         <p>
           {actualWall.height / 100}m x {actualWall.width / 100}m
         </p>
         <p>{((actualWall.height * actualWall.width) / 10000).toFixed(2)}m²</p>
+        <p className="absolute bottom-3 right-4 flex justify-center items-center">
+          <MdWindow />
+          <span style={{ fontSize: "10px" }}>x</span>
+          {actualWall.windows}
+          <MdDoorFront />
+          <span style={{ fontSize: "10px" }}>x</span>
+          {actualWall.doors}
+        </p>
       </div>
     </div>
   );
