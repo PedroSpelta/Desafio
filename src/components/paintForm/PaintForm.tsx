@@ -1,5 +1,5 @@
 import { Button, FormControl } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { defaultDoor, defaultWall, defaultWindow } from "../../constants/wall";
 import { IFormChangeHandler } from "../../types/generic";
 import { IWall, IWallForm } from "../../types/wall";
@@ -7,7 +7,11 @@ import PaintFormInput from "./PaintFormInput";
 import PaintFormText from "./PaintFormText";
 
 const PaintForm: React.FC<IWallForm> = ({ walls, setWalls, wallNumber }) => {
-  const [localSize, setLocalSize] = useState<IWall>(defaultWall);
+  const [localSize, setLocalSize] = useState<IWall>(walls[wallNumber]);
+
+  useEffect(() => {
+    setLocalSize(walls[wallNumber]);
+  }, [wallNumber, walls]);
 
   const inputToNumber = (input: string | number) => {
     if (typeof input === "number") return input;
