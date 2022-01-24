@@ -24,7 +24,7 @@ const PaintRoomShape: React.FC<IPaintRoomShape> = ({ walls, setWalls }) => {
   return (
     <div className="">
       <SectionTitle number={1} title="Select Room Shape" />
-      <div className="rounded-xl w-[300px] h-20 flex items-center justify-center gap-10">
+      <div className="rounded-xl ml-5 h-20 flex items-center justify-center gap-3">
         <ShapeImage
           title="Square"
           src={"/images/shape1.png"}

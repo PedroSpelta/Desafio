@@ -49,7 +49,7 @@ const PaintForm: React.FC<IWallForm> = ({ walls, setWalls, wallNumber }) => {
   };
 
   return (
-    <div>
+    <div className=" mt-10">
       <FormControl>
         <PaintFormText
           label="Height"

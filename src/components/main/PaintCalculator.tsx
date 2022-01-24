@@ -14,7 +14,7 @@ function PaintCalculator() {
 
   return (
     <div className="flex justify-center">
-      <div className="flex justify-center border-2 border-purple-900 max-w-4xl w-full">
+      <div className="flex flex-col md:flex-row justify-center border-2 border-purple-900 max-w-4xl w-full">
         <div className="flex flex-col">
           <PaintRoomShape walls={walls} setWalls={setWalls} />
           <SectionTitle number={2} title="Measure your walls" />
@@ -31,7 +31,7 @@ function PaintCalculator() {
             />
           </div>
         </div>
-        <PaintResult walls={walls}/>
+        <PaintResult walls={walls} wallNumber={wallNumber}/>
       </div>
     </div>
   );
