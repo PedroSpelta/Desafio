@@ -38,7 +38,7 @@ const PaintRoomShape: React.FC<IPaintRoomShape> = ({ walls, setWalls }) => {
         <ShapeImage
           title="Custom"
           src={"/images/shape3.png"}
-          onClick={() => test(3)}
+          onClick={() => test(4)}
         />
       </div>
     </div>

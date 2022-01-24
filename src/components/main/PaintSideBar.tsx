@@ -13,7 +13,7 @@ const PaintSidebar: React.FC<IPaintSidebar> = ({ walls, setWallNumber,wallNumber
   }, [walls.length]);
 
   return (
-    <div className="h-[400px] w-20 overflow-hidden">
+    <div className="h-[224px] overflow-hidden mx-8">
       <TransitionGroup className="flex flex-col items-center h-full gap-2">
         {walls.map((e, i) => {
           const itemRef = createRef<HTMLDivElement>();
@@ -27,14 +27,14 @@ const PaintSidebar: React.FC<IPaintSidebar> = ({ walls, setWallNumber,wallNumber
             >
               <div
                 ref={itemRef}
-                className={`w-16 h-16 cursor-pointer flex items-center `}
+                className={`cursor-pointer flex items-center `}
                 onClick={() => setWallNumber(i)}
               >
-                <div className={`hover:bg-blue-300 ${bgColor} w-16 h-16 rounded-md flex justify-center items-center`}>
+                <div className={`hover:bg-blue-300 ${bgColor} w-12 h-12 rounded-md flex justify-center items-center`}>
                   <Image
                     src={`${imagePath}${i + 1}.png`}
-                    width="58px"
-                    height="58px"
+                    width="34px"
+                    height="34px"
                     alt=""
                   />
                 </div>

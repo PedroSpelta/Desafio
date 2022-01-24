@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { defaultWalls } from "../../constants/wall";
 import { IWalls } from "../../types/wall";
-import PaintForm from "./PaintForm";
+import PaintForm from "../paintForm/PaintForm";
 import PaintResult from "./PaintResult";
 import PaintRoomShape from "../paintShape/PaintRoomShape";
 import PaintSidebar from "./PaintSideBar";
@@ -18,7 +18,7 @@ function PaintCalculator() {
         <div className="flex flex-col">
           <PaintRoomShape walls={walls} setWalls={setWalls} />
           <SectionTitle number={2} title="Measure your walls" />
-          <div className="flex justify-center items-center max-w-4xl w-full">
+          <div className="flex items-center">
             <PaintSidebar
               walls={walls}
               setWallNumber={setWallNumber}
