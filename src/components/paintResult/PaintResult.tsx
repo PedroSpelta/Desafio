@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getPaintCanBySize } from "../../lib/paint";
 import { IPaintResult } from "../../types/wall";
 import SectionTitle from "../main/SectionTitle";
+import PaintCans from "./PaintCans";
 
 const PaintResult: React.FC<IPaintResult> = ({ walls }) => {
+  const [paintCans, setPaintCans] = useState([0, 0, 0, 0]);
+  const totalArea = walls.reduce((prev, cur) => {
+    return prev + cur.area / 10000;
+  }, 0);
+
+  const totalLiters = totalArea / 5;
+
+  useEffect(() => {
+    setPaintCans(getPaintCanBySize(totalLiters));
+  }, [totalLiters]);
+
   return (
     <div className="h-full w-full flex flex-col items-center justify-center">
       <SectionTitle title="How Much Paint You Need" number={3} />
@@ -16,13 +29,14 @@ const PaintResult: React.FC<IPaintResult> = ({ walls }) => {
         </div>
         <div className="flex flex-col justify-center items-center">
           {walls.map((wall, i) => (
-            <p key={i}>{wall.area/10000} m²</p>
+            <p key={i}>{wall.area / 10000} m²</p>
           ))}
-          <p>teste</p>
+          <p>{totalArea} m²</p>
         </div>
       </div>
       <p>Paint liters</p>
-      <p className="text-xl font-bold">450 Liters</p>
+      <p className="text-xl font-bold">{totalLiters} Liters</p>
+      <PaintCans paintCans={paintCans} />
     </div>
   );
 };

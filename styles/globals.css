@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
 html,
 body {
   padding: 0;
@@ -17,6 +21,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.cursive {
+  font-family: 'Pacifico';
 }
 
 .wallSelector-exit {

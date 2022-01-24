@@ -1,5 +1,10 @@
 import { SelectChangeEvent } from "@mui/material";
-import { ChangeEvent, ChangeEventHandler, MouseEventHandler, ReactNode } from "react";
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 
 export interface IShapeImage {
   title: string;
@@ -15,7 +20,9 @@ export interface IPaintFormText {
 
 export interface IFormChangeHandler {
   (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<number>,
+    event:
+      | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+      | SelectChangeEvent<number>,
     label: string
   ): void;
 }
@@ -24,4 +31,8 @@ export interface IPaintFormInput {
   value: number;
   onChange: (event: SelectChangeEvent<number>, child: ReactNode) => void;
   items: Array<number>;
+}
+
+export interface IPaintCans {
+  paintCans: Array<number>;
 }
