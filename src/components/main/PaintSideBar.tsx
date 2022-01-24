@@ -13,7 +13,7 @@ const PaintSidebar: React.FC<IPaintSidebar> = ({ walls, setWallNumber,wallNumber
   }, [walls.length]);
 
   return (
-    <div className="rounded-xl h-[400px] w-20 overflow-hidden">
+    <div className="h-[400px] w-20 overflow-hidden">
       <TransitionGroup className="flex flex-col items-center h-full gap-2">
         {walls.map((e, i) => {
           const itemRef = createRef<HTMLDivElement>();

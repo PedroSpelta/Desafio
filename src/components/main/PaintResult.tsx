@@ -1,11 +1,10 @@
 import React from "react";
+import SectionTitle from "./SectionTitle";
 
 function PaintResult() {
   return (
     <div className="h-full w-full flex flex-col items-center justify-center">
-      <p className="bg-[#373655] w-[250px] py-2 text-white text-center font-semibold">
-        How Much Paint I Need?
-      </p>
+      <SectionTitle title="How Much Paint You Need" number={3} />
       <p>Total Area</p>
       <div className="grid grid-cols-2 max-w-[250px] w-full border border-gray-300 p-2">
         <div className="flex flex-col justify-center items-center">
