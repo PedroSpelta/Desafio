@@ -5,6 +5,7 @@ export interface IWall {
   height: number;
   windows: number;
   doors: number;
+  area: number;
 }
 
 export interface IWalls extends Array<IWall> {}
@@ -28,4 +29,8 @@ export interface IPaintSidebar {
 export interface IPaintRoomShape {
   walls: IWalls;
   setWalls: Dispatch<SetStateAction<IWalls>>;
+}
+
+export interface IPaintResult {
+  walls: IWalls;
 }

@@ -1,6 +1,6 @@
 import { Button, FormControl } from "@mui/material";
 import React, { useState } from "react";
-import { defaultWall } from "../../constants/wall";
+import { defaultDoor, defaultWall, defaultWindow } from "../../constants/wall";
 import { IFormChangeHandler } from "../../types/generic";
 import { IWall, IWallForm } from "../../types/wall";
 import PaintFormInput from "./PaintFormInput";
@@ -15,6 +15,15 @@ const PaintForm: React.FC<IWallForm> = ({ walls, setWalls, wallNumber }) => {
     return Number(input.replace(/[^0-9]/g, ""));
   };
 
+  const getArea = () => {
+    const { height, width, windows, doors } = localSize;
+    const baseArea = height * width;
+    const noPaintArea =
+      defaultWindow.area * localSize.windows +
+      defaultDoor.area * localSize.doors;
+    return baseArea - noPaintArea;
+  };
+
   const localToStateSize = () => {
     // const invalidArea = validateArea(localSize);
     // if (invalidArea) return alert(invalidArea);
@@ -23,7 +32,7 @@ const PaintForm: React.FC<IWallForm> = ({ walls, setWalls, wallNumber }) => {
 
     return setWalls((state) => {
       const newState = [...state];
-      newState[wallNumber] = localSize;
+      newState[wallNumber] = { ...localSize, area: getArea() };
       return newState;
     });
   };

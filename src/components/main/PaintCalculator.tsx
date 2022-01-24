@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { defaultWalls } from "../../constants/wall";
 import { IWalls } from "../../types/wall";
 import PaintForm from "../paintForm/PaintForm";
-import PaintResult from "./PaintResult";
+import PaintResult from "../paintResult/PaintResult";
 import PaintRoomShape from "../paintShape/PaintRoomShape";
 import PaintSidebar from "./PaintSideBar";
 import SectionTitle from "./SectionTitle";
@@ -31,7 +31,7 @@ function PaintCalculator() {
             />
           </div>
         </div>
-        <PaintResult />
+        <PaintResult walls={walls}/>
       </div>
     </div>
   );
