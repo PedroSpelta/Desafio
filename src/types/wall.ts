@@ -22,6 +22,7 @@ export interface IWallForm {
 export interface IPaintSidebar {
   walls: IWalls;
   setWallNumber: Dispatch<SetStateAction<number>>;
+  wallNumber: number;
 }
 
 export interface IPaintRoomShape {

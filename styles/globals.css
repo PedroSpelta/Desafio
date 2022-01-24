@@ -22,23 +22,23 @@ a {
 .wallSelector-exit {
   margin-top: 0%;
   opacity: 1;
-  transition: margin-top 600ms, opacity 600ms ease-out;
+  transition: margin-top 600ms, opacity 400ms ease-out;
 }
 
 .wallSelector-exit-active {
   margin-top: -100%;
   opacity: 0;
-  transition: margin-top 600ms, opacity 600ms ease-out;
+  transition: margin-top 600ms, opacity 400ms ease-out;
 }
 
 .wallSelector-enter {
   margin-top: -100%;
   opacity: 0;
-  transition: margin-top 600ms, opacity 600ms ease-in;
+  transition: margin-top 600ms, opacity 400ms ease-in;
 }
 
 .wallSelector-enter-active {
   margin-top: 0%;
   opacity: 1;
-  transition: margin-top 600ms, opacity 600ms ease-in;
+  transition: margin-top 600ms, opacity 400ms ease-in;
 }

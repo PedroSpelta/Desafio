@@ -1,8 +1,7 @@
-import React from 'react';
-import { defaultWall } from '../../constants/wall';
-import { IPaintRoomShape } from '../../types/wall';
-
-
+import Image from "next/image";
+import React from "react";
+import { defaultWall } from "../../constants/wall";
+import { IPaintRoomShape } from "../../types/wall";
 
 const PaintRoomShape: React.FC<IPaintRoomShape> = ({ walls, setWalls }) => {
   const test = (newSize: number) => {
@@ -13,7 +12,7 @@ const PaintRoomShape: React.FC<IPaintRoomShape> = ({ walls, setWalls }) => {
     setWalls((state) => {
       const newWalls = [...state];
       for (let i = 0; i < modifyNumber; i += 1) {
-        if( newSize > size) newWalls.push(defaultWall);
+        if (newSize > size) newWalls.push(defaultWall);
         else newWalls.pop();
       }
       return newWalls;
@@ -21,19 +20,45 @@ const PaintRoomShape: React.FC<IPaintRoomShape> = ({ walls, setWalls }) => {
   };
 
   return (
-    <div className="rounded-xl bg-[#46446d] w-[300px] h-20 flex items-center justify-center gap-10">
+    <div className="rounded-xl w-[300px] h-20 flex items-center justify-center gap-10">
       <div
-        className="bg-white w-16 h-16 rounded-xl cursor-pointer"
+        className="hover:bg-blue-300 flex flex-col justify-center items-center m-auto w-16 h-16 rounded-xl cursor-pointer"
         onClick={() => test(1)}
-      ></div>
+      >
+        <Image
+          src={"/images/shape1.png"}
+          alt=""
+          width={"40px"}
+          height={"40px"}
+        />
+        <p className="font-semibold text-sm">Square</p>
+      </div>
       <div
-        className="bg-white w-16 h-16 rounded-xl cursor-pointer"
+        className="hover:bg-blue-300 flex flex-col justify-center items-center m-auto w-16 h-16 rounded-xl cursor-pointer"
         onClick={() => test(2)}
-      ></div>
+      >
+        <Image
+          src={"/images/shape2.png"}
+          alt=""
+          width={"52px"}
+          height={"52px"}
+        />
+        <p className="font-semibold text-sm">Rectangle</p>
+
+      </div>
       <div
-        className="bg-white w-16 h-16 rounded-xl cursor-pointer"
+        className="hover:bg-blue-300 flex flex-col justify-center items-center m-auto w-16 h-16 rounded-xl cursor-pointer"
         onClick={() => test(4)}
-      ></div>
+      >
+        <Image
+          src={"/images/shape3.png"}
+          alt=""
+          width={"52px"}
+          height={"52px"}
+        />
+        <p className="font-semibold text-sm">Custom</p>
+
+      </div>
     </div>
   );
 };
