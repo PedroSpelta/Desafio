@@ -33,4 +33,10 @@ export interface IPaintRoomShape {
 
 export interface IPaintResult {
   walls: IWalls;
+  wallNumber: number;
+}
+
+export interface IPaintResultTable {
+  realWalls: IWalls;
+  totalArea: number;
 }

@@ -7,7 +7,7 @@ const SectionTitle: React.FC<ISectionTitle> = ({ number, title }) => {
       <p className="bg-[#373655] rounded-full w-8 h-8 text-white font-bold flex items-center justify-center">
         {number}.
       </p>
-      <p className="ml-2">{title}</p>
+      <p className="ml-2 text-lg font-semibold">{title}</p>
     </div>
   );
 };

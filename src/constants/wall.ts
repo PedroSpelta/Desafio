@@ -8,6 +8,13 @@ export const defaultWall = {
 
 export const defaultWalls = [defaultWall];
 
+export const defaultRealWalls = [
+  defaultWall,
+  defaultWall,
+  defaultWall,
+  defaultWall,
+];
+
 export const defaultWindow = { width: 200, height: 120, area: 24000 };
 
 export const defaultDoor = { width: 80, height: 190, area: 15200 };
