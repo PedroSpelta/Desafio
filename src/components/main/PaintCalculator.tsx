@@ -13,7 +13,7 @@ function PaintCalculator() {
 
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col md:flex-row justify-center max-w-4xl w-full p-10 bg-white rounded-md shadow-xl">
+      <div id="paint-container" className="flex flex-col md:flex-row justify-center max-w-4xl w-full p-10 bg-white rounded-md shadow-xl">
         <div className="flex flex-col w-[50%] justify-center items-center">
           <PaintRoomShape walls={walls} setWalls={setWalls} />
           <div>
