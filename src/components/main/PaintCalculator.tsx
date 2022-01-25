@@ -10,28 +10,29 @@ import SectionTitle from "./SectionTitle";
 function PaintCalculator() {
   const [walls, setWalls] = useState<IWalls>(defaultWalls);
   const [wallNumber, setWallNumber] = useState(0);
-  console.log(walls);
 
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col md:flex-row justify-center border-2 border-purple-900 max-w-4xl w-full">
-        <div className="flex flex-col">
+      <div className="flex flex-col md:flex-row justify-center max-w-4xl w-full p-10 bg-white rounded-md shadow-xl">
+        <div className="flex flex-col w-[50%] justify-center items-center">
           <PaintRoomShape walls={walls} setWalls={setWalls} />
-          <SectionTitle number={2} title="Measure your walls" />
-          <div className="flex items-center">
-            <PaintSidebar
-              walls={walls}
-              setWallNumber={setWallNumber}
-              wallNumber={wallNumber}
-            />
-            <PaintForm
-              walls={walls}
-              setWalls={setWalls}
-              wallNumber={wallNumber}
-            />
+          <div>
+            <SectionTitle number={2} title="Measure your walls" />
+            <div className="flex items-center">
+              <PaintSidebar
+                walls={walls}
+                setWallNumber={setWallNumber}
+                wallNumber={wallNumber}
+              />
+              <PaintForm
+                walls={walls}
+                setWalls={setWalls}
+                wallNumber={wallNumber}
+              />
+            </div>
           </div>
         </div>
-        <PaintResult walls={walls} wallNumber={wallNumber}/>
+        <PaintResult walls={walls} wallNumber={wallNumber} />
       </div>
     </div>
   );

@@ -12,6 +12,10 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #f3f3f3;
+  /* background-image: url("/images/paintBg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%; */
 }
 
 a {
@@ -24,7 +28,7 @@ a {
 }
 
 .cursive {
-  font-family: 'Pacifico';
+  font-family: "Pacifico";
 }
 
 .wallSelector-exit {

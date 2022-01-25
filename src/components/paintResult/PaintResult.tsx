@@ -35,7 +35,7 @@ const PaintResult: React.FC<IPaintResult> = ({ walls }) => {
   }, [totalLiters]);
 
   return (
-    <div className="h-full w-full flex flex-col md:items-center justify-center">
+    <div className="h-full w-[50%] flex flex-col md:items-center justify-center">
       <SectionTitle title="How Much Paint You Need" number={3} />
       <PaintResultTable realWalls={realWalls} totalArea={totalArea} />
       <p className="text-base font-bold">Total: {totalLiters} Liters</p>
