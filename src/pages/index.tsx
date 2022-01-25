@@ -6,7 +6,7 @@ import Header from "../components/header/Header";
 import Introduction from "../components/introduction/Introduction";
 import PaintCalculator from "../components/main/PaintCalculator";
 
-const Home: NextPage = () => {
+const Home = () => {
   const [language, setLanguage] = useState("english");
   return (
     <div className="flex flex-col flex-grow">
@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main data-testid="main">
         <Header />
         <Introduction />
         <PaintCalculator />

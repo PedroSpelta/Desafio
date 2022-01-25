@@ -18,6 +18,5 @@ export const getPaintCanBySize = (liters: number) => {
       l -= 0.5;
     }
   }
-  console.log(cans);
   return cans;
 };

@@ -5,7 +5,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch",
+    "test:ci": "jest --ci",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -18,17 +21,23 @@
     "react-transition-group": "^4.4.2"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.16.7",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.4.0",
     "@types/node": "17.0.10",
     "@types/react": "17.0.38",
+    "add": "^2.0.6",
     "autoprefixer": "^10.4.2",
     "babel-jest": "^27.4.6",
+    "cypress": "^9.3.1",
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.8",
     "jest": "^27.4.7",
+    "or": "^0.2.0",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.15",
-    "typescript": "4.5.5"
+    "typescript": "4.5.5",
+    "yarn": "^1.22.17"
   }
 }
