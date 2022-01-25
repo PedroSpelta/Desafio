@@ -7,6 +7,7 @@ import {
 } from "react";
 
 export interface IShapeImage {
+  selected: boolean;
   title: string;
   src: string;
   onClick: MouseEventHandler<HTMLDivElement>;

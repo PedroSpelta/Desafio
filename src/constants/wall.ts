@@ -6,7 +6,12 @@ export const defaultWall = {
   area: 10000,
 };
 
-export const defaultWalls = [defaultWall];
+export const defaultWalls = [
+  defaultWall,
+  defaultWall,
+  defaultWall,
+  defaultWall,
+];
 
 export const defaultRealWalls = [
   defaultWall,

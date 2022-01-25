@@ -6,12 +6,12 @@ const Introduction: React.FC = ({}) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center mb-5">
       <div className=" flex flex-col justify-center items-center bg-white shadow-md">
         <div
           className={`max-w-4xl w-full ${
             isVisible && "!max-h-[500px] !opacity-100"
-          } max-h-0 opacity-0 overflow-hidden transition-all duration-1000 ease-linear `}
+          } max-h-0 opacity-0 overflow-hidden transition-all duration-1000 ease-linear`}
         >
           {/* <Image
           src={"/images/paintingWall.jpg"}
@@ -19,7 +19,7 @@ const Introduction: React.FC = ({}) => {
           width={"700px"}
           height={"400px"}
         /> */}
-          <div className="max-w-2xl text-base font-semibold">
+          <div className="max-w-2xl text-base font-semibold pb-5">
             <p>
               You don&apos;t know how much paint to buy for your next home project?
             </p>

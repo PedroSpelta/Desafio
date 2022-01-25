@@ -6,7 +6,7 @@ import SectionTitle from "../main/SectionTitle";
 import ShapeImage from "./ShapeImage";
 
 const PaintRoomShape: React.FC<IPaintRoomShape> = ({ walls, setWalls }) => {
-  const test = (newSize: number) => {
+  const reShapeHandler = (newSize: number) => {
     const { length: size } = walls;
     if (newSize === size) return;
     const modifyNumber = Math.abs(newSize - size);
@@ -26,19 +26,22 @@ const PaintRoomShape: React.FC<IPaintRoomShape> = ({ walls, setWalls }) => {
       <SectionTitle number={1} title="Select Room Shape" />
       <div className="rounded-xl ml-5 h-20 flex items-center justify-center gap-3">
         <ShapeImage
+          selected={walls.length === 1}
           title="Square"
           src={"/images/shape1.png"}
-          onClick={() => test(1)}
+          onClick={() => reShapeHandler(1)}
         />
         <ShapeImage
+          selected={walls.length === 2}
           title="Rectangle"
           src={"/images/shape2.png"}
-          onClick={() => test(2)}
+          onClick={() => reShapeHandler(2)}
         />
         <ShapeImage
+          selected={walls.length === 4}
           title="Custom"
           src={"/images/shape3.png"}
-          onClick={() => test(4)}
+          onClick={() => reShapeHandler(4)}
         />
       </div>
     </div>
