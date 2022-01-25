@@ -12,8 +12,8 @@ function Header() {
       <Logo />
 
       <MenuBar />
-      <div className="w-full flex justify-center items-center h-10 bg-white text-lg text-[#5C2E91] font-semibold">
-        <div className="w-full max-w-4xl">Paint Calculator</div>
+      <div className="w-full flex justify-center items-center h-10 bg-white text-lg text-[#5C2E91] font-semibold shadow-md">
+        <div className="w-full max-w-4xl ">Paint Calculator</div>
       </div>
     </div>
   );
