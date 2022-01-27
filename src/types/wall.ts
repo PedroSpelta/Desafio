@@ -40,3 +40,10 @@ export interface IPaintResultTable {
   realWalls: IWalls;
   totalArea: number;
 }
+
+export interface IPaintUserMeasure {
+  walls: IWalls;
+  setWalls: Dispatch<SetStateAction<IWalls>>;
+  setWallNumber: Dispatch<SetStateAction<number>>;
+  wallNumber: number;
+}
